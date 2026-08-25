@@ -60,39 +60,38 @@ document.addEventListener('DOMContentLoaded', () => {
   const statusDotEl = document.getElementById('status-live-dot');
 
   function updateLiveClock() {
-    const now = new Date();
-    
-    // Time in America/Lima
-    if (liveTimeEl) {
-      const timeStr = now.toLocaleTimeString('en-US', {
-        timeZone: 'America/Lima',
-        hour12: false,
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-      liveTimeEl.textContent = timeStr;
-    }
-
-    // Dynamic Availability based on local hour (7:00 AM to 11:00 PM)
-    if (statusDotEl) {
-      const hourFormatter = new Intl.DateTimeFormat('en-US', {
-        timeZone: 'America/Lima',
-        hour: 'numeric',
-        hour12: false
-      });
-      const currentHour = parseInt(hourFormatter.format(now), 10);
-      const isWorkingHours = currentHour >= 7 && currentHour < 23;
-
-      if (isWorkingHours) {
-        statusDotEl.className = 'status-live-dot online';
-        const label = currentLang === 'es' ? 'Online • Activo' : 'Online • Active';
-        statusDotEl.innerHTML = `<span class="pulse-dot"></span> <span>${label}</span>`;
-      } else {
-        statusDotEl.className = 'status-live-dot offline';
-        const label = currentLang === 'es' ? '🌙 Fuera de línea • Responde mañana' : '🌙 Away • Replies by morning';
-        statusDotEl.innerHTML = `<span>${label}</span>`;
+    try {
+      const limaDateStr = new Date().toLocaleString('en-US', { timeZone: 'America/Lima' });
+      const limaDate = new Date(limaDateStr);
+      
+      // Time Display in America/Lima
+      if (liveTimeEl) {
+        const timeStr = limaDate.toLocaleTimeString('en-US', {
+          hour12: false,
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit'
+        });
+        liveTimeEl.textContent = timeStr;
       }
+
+      // Dynamic Availability based on local hour (7:00 AM to 11:00 PM)
+      if (statusDotEl) {
+        const currentHour = limaDate.getHours();
+        const isWorkingHours = currentHour >= 7 && currentHour < 23;
+
+        if (isWorkingHours) {
+          statusDotEl.className = 'status-live-dot online';
+          const label = currentLang === 'es' ? 'Online • Activo' : 'Online • Active';
+          statusDotEl.innerHTML = `<span class="pulse-dot"></span> <span>${label}</span>`;
+        } else {
+          statusDotEl.className = 'status-live-dot offline';
+          const label = currentLang === 'es' ? '🌙 Fuera de línea • Responde mañana' : '🌙 Away • Replies by morning';
+          statusDotEl.innerHTML = `<span>${label}</span>`;
+        }
+      }
+    } catch (e) {
+      // Fallback
     }
   }
   setInterval(updateLiveClock, 1000);
