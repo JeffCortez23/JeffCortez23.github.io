@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>Jeffrey Cortez | Systems & Software Engineer</title>
+  <meta name="title" content="Jeffrey Cortez | Systems & Software Engineer">
+  <meta name="description" content="Portfolio of Renzo Jeffrey Cortez (ElYefris). Systems Engineering student at UNAM building full-stack web, mobile, Linux utilities, and open-source software.">
+  <meta name="keywords" content="Renzo Jeffrey Cortez, ElYefris, Software Engineer, Full Stack, Kotlin, React, TypeScript, UNAM, Moquegua, Peru">
+  <meta name="author" content="Renzo Jeffrey Cortez Laura">
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://elyefris.github.io/">
+  <meta property="og:title" content="Jeffrey Cortez | Systems & Software Engineer">
+  <meta property="og:description" content="Undergraduate in Systems Engineering at UNAM. Full-stack, mobile, and Linux systems developer.">
+  <meta property="og:image" content="assets/banner.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://elyefris.github.io/">
+  <meta property="twitter:title" content="Jeffrey Cortez | Systems & Software Engineer">
+  <meta property="twitter:description" content="Undergraduate in Systems Engineering at UNAM. Full-stack, mobile, and Linux systems developer.">
+  <meta property="twitter:image" content="assets/banner.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Three.js Background Canvas -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="toast" role="alert" aria-live="polite">Email copied to clipboard!</div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar-wrapper">
+    <nav class="navbar container">
+      <a href="#hero" class="brand">
+        <span class="brand-code">&lt;</span>ElYefris<span class="brand-accent"> /&gt;</span>
+      </a>
+
+      <div class="nav-menu" id="nav-menu">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#experience" class="nav-link">Timeline</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="CV_Renzo_Cortez.pdf" download="CV_Renzo_Cortez.pdf" class="btn btn-outline btn-sm">
+          <i class="fa-solid fa-file-arrow-down"></i> Resume
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-content">
+          
+          <div class="badge-status">
+            <span class="pulse-dot"></span>
+            <span>Available for Software Engineering Internships</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="gradient-text">Jeffrey Cortez</span>
+          </h1>
+
+          <div class="hero-terminal">
+            <span class="prompt">$</span>
+            <span id="typed-text" class="typed-text"></span>
+            <span class="cursor">|</span>
+          </div>
+
+          <p class="hero-desc">
+            Undergraduate in <strong>Systems & Computer Engineering</strong> at Universidad Nacional de Moquegua (UNAM). 
+            Passionate about architecting responsive full-stack applications, native Android experiences, 
+            and customized Linux desktop tooling.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fa-solid fa-code"></i> Explore Projects
+            </a>
+            <a href="CV_Renzo_Cortez.pdf" download="CV_Renzo_Cortez.pdf" class="btn btn-glass">
+              <i class="fa-solid fa-file-pdf"></i> Download CV
+            </a>
+            <a href="#contact" class="btn btn-ghost">
+              Get in Touch <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="social-links">
+            <a href="https://github.com/JeffCortez23" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/jeff-cortez-6b4407338/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:jeffcortez2305@gmail.com" aria-label="Send Email">
+              <i class="fa-regular fa-envelope"></i>
+            </a>
+            <a href="https://orcid.org/0009-0003-3692-7916" target="_blank" rel="noopener noreferrer" aria-label="ORCID">
+              <i class="fa-brands fa-orcid"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="hero-visual">
+          <div class="avatar-card">
+            <div class="avatar-ring">
+              <img src="assets/avatar.png" alt="Jeffrey Cortez Avatar" class="avatar-img" width="280" height="280">
+            </div>
+            <div class="floating-badge badge-1">
+              <i class="fa-brands fa-react text-cyan"></i> React & Node
+            </div>
+            <div class="floating-badge badge-2">
+              <i class="fa-brands fa-android text-emerald"></i> Kotlin & Mobile
+            </div>
+            <div class="floating-badge badge-3">
+              <i class="fa-brands fa-linux text-amber"></i> Linux / Hyprland
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// 01. ABOUT ME</span>
+          <h2 class="section-title">Driven by Engineering & Innovation</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <h3><i class="fa-solid fa-graduation-cap text-amber"></i> Academic Journey</h3>
+            <p>
+              Currently completing my degree in <strong>Systems and Computer Engineering</strong> at UNAM in Ilo, Peru (~4 semesters to graduation). 
+              Focused on software architecture, relational & distributed databases, and information security standards like <strong>ISO/IEC 27001</strong>.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <h3><i class="fa-solid fa-laptop-code text-cyan"></i> Software Craftsmanship</h3>
+            <p>
+              I build production-oriented applications using modern stacks like <strong>TypeScript, React, Node.js, and Kotlin</strong>. 
+              My focus is on writing clean, scalable, and maintainable code with intuitive user experiences.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <h3><i class="fa-brands fa-linux text-emerald"></i> Open-Source & Linux</h3>
+            <p>
+              Active Linux desktop enthusiast (Wayland / Hyprland). I create native widgets and system tools in <strong>QML, D-Bus MPRIS, and Bash</strong>, 
+              automating workflows and building user-centric utilities.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// 02. PORTFOLIO</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">Real-world applications, campus systems, and open-source contributions.</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="web">Web / Full-Stack</button>
+          <button class="filter-btn" data-filter="mobile">Mobile</button>
+          <button class="filter-btn" data-filter="linux">Linux & Tools</button>
+          <button class="filter-btn" data-filter="hardware">Robotics / IoT</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+          
+          <!-- Project 1: UNAMConnect -->
+          <article class="project-card" data-category="web">
+            <div class="project-header">
+              <div class="project-folder">
+                <i class="fa-regular fa-folder-open text-amber"></i>
+                <span class="project-year">2026</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/JeffCortez23/UNAMConnect" target="_blank" rel="noopener noreferrer" aria-label="UNAMConnect GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">UNAMConnect</h3>
+            <p class="project-desc">
+              Academic Student Trajectory & Peer Tutoring Portal. A full-stack university information system 
+              designed to track student lifecycle, monitor academic analytics, and manage peer tutoring sessions.
+            </p>
+            <div class="project-tech-list">
+              <span>TypeScript</span>
+              <span>React</span>
+              <span>Node.js</span>
+              <span>SQL</span>
+              <span>REST API</span>
+            </div>
+          </article>
+
+          <!-- Project 2: UNAMRide -->
+          <article class="project-card" data-category="mobile">
+            <div class="project-header">
+              <div class="project-folder">
+                <i class="fa-regular fa-folder-open text-amber"></i>
+                <span class="project-year">2025 – 2026</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/JeffCortez23/UNAMRide" target="_blank" rel="noopener noreferrer" aria-label="UNAMRide GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">UNAMRide</h3>
+            <p class="project-desc">
+              Native Android carpooling and campus mobility application connecting students for safe, eco-friendly 
+              university transit with real-time Firebase sync and geolocation routing.
+            </p>
+            <div class="project-tech-list">
+              <span>Kotlin</span>
+              <span>Java</span>
+              <span>Android SDK</span>
+              <span>Firebase</span>
+              <span>Material 3</span>
+            </div>
+          </article>
+
+          <!-- Project 3: Omarchy Vibez -->
+          <article class="project-card" data-category="linux">
+            <div class="project-header">
+              <div class="project-folder">
+                <i class="fa-regular fa-folder-open text-amber"></i>
+                <span class="project-year">2026</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/JeffCortez23/omarchy-vibez" target="_blank" rel="noopener noreferrer" aria-label="Omarchy Vibez GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Omarchy Vibez</h3>
+            <p class="project-desc">
+              Native MPRIS music status bar controller for Omarchy/Hyprland with real-time metadata, 
+              Apple Music CDN album art caching, seekable scrub bar, and persistent background session management.
+            </p>
+            <div class="project-tech-list">
+              <span>QML</span>
+              <span>D-Bus MPRIS</span>
+              <span>Bash</span>
+              <span>Tmux</span>
+            </div>
+          </article>
+
+          <!-- Project 4: Projector & Cast -->
+          <article class="project-card" data-category="linux">
+            <div class="project-header">
+              <div class="project-folder">
+                <i class="fa-regular fa-folder-open text-amber"></i>
+                <span class="project-year">2026</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/JeffCortez23/omarchy-projector-cast" target="_blank" rel="noopener noreferrer" aria-label="Projector Cast GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Omarchy Projector & Cast</h3>
+            <p class="project-desc">
+              1-click Miracast screen mirroring widget for projectors and smart TVs with aspect-ratio presets (16:10, 16:9, 3:2), 
+              HiDPI auto-scaling, custom resolution input, and 8-language localization.
+            </p>
+            <div class="project-tech-list">
+              <span>QML</span>
+              <span>Hyprland</span>
+              <span>Miracast</span>
+              <span>JavaScript</span>
+              <span>I18n</span>
+            </div>
+          </article>
+
+          <!-- Project 5: LechuBOT -->
+          <article class="project-card" data-category="hardware">
+            <div class="project-header">
+              <div class="project-folder">
+                <i class="fa-regular fa-folder-open text-amber"></i>
+                <span class="project-year">2025</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/JeffCortez23/LechuBOT" target="_blank" rel="noopener noreferrer" aria-label="LechuBOT GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">LechuBOT</h3>
+            <p class="project-desc">
+              Autonomous line-follower robotics system built with Arduino MEGA, L9110 motor controllers, 
+              infrared array sensors, and ultrasonic collision detection algorithms.
+            </p>
+            <div class="project-tech-list">
+              <span>C++</span>
+              <span>Arduino MEGA</span>
+              <span>Robotics</span>
+              <span>Sensors</span>
+            </div>
+          </article>
+
+          <!-- Project 6: Fix Sims 4 Linux -->
+          <article class="project-card" data-category="linux">
+            <div class="project-header">
+              <div class="project-folder">
+                <i class="fa-regular fa-folder-open text-amber"></i>
+                <span class="project-year">2026</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/JeffCortez23/Fix_Sims_4_Linux" target="_blank" rel="noopener noreferrer" aria-label="Fix Sims 4 GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Fix Sims 4 Linux</h3>
+            <p class="project-desc">
+              Automated DLC manager, cache cleaner, and compatibility health-check script for Linux & Steam Deck 
+              running Proton / Wine compatibility layers.
+            </p>
+            <div class="project-tech-list">
+              <span>Shell Scripting</span>
+              <span>Proton / Wine</span>
+              <span>Steam Deck</span>
+              <span>Linux</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// 03. CAPABILITIES</span>
+          <h2 class="section-title">Technical Skillset</h2>
+          <p class="section-subtitle">Technologies, frameworks, and engineering tools I work with daily.</p>
+        </div>
+
+        <div class="skills-grid">
+          
+          <div class="skill-category">
+            <h3><i class="fa-solid fa-code text-amber"></i> Languages</h3>
+            <div class="skill-tags">
+              <span class="tag">JavaScript (ES6+)</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Kotlin</span>
+              <span class="tag">Java</span>
+              <span class="tag">Python</span>
+              <span class="tag">C++</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Bash</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3><i class="fa-solid fa-layer-group text-cyan"></i> Frontend & UI</h3>
+            <div class="skill-tags">
+              <span class="tag">React</span>
+              <span class="tag">HTML5 & CSS3</span>
+              <span class="tag">Tailwind CSS</span>
+              <span class="tag">QML (Qt)</span>
+              <span class="tag">Three.js</span>
+              <span class="tag">Responsive UI</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3><i class="fa-solid fa-server text-emerald"></i> Backend & Databases</h3>
+            <div class="skill-tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Express</span>
+              <span class="tag">RESTful APIs</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Firebase Firestore</span>
+              <span class="tag">Firebase Auth</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3><i class="fa-solid fa-shield-halved text-purple"></i> DevOps & Security</h3>
+            <div class="skill-tags">
+              <span class="tag">Git & GitHub</span>
+              <span class="tag">Linux / Hyprland</span>
+              <span class="tag">ISO/IEC 27001</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Android Studio</span>
+              <span class="tag">VS Code</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience & Education Timeline -->
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// 04. TRAJECTORY</span>
+          <h2 class="section-title">Education & Timeline</h2>
+        </div>
+
+        <div class="timeline">
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2020 — PRESENT</div>
+            <div class="timeline-content">
+              <h3>B.S. in Systems & Computer Engineering</h3>
+              <h4>Universidad Nacional de Moquegua (UNAM) — Ilo, Peru</h4>
+              <p>Undergraduate degree track with coursework in software engineering, database administration, system design, operating systems, and computer networks. Expected graduation within 4 semesters.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">APR. 2024</div>
+            <div class="timeline-content">
+              <h3>ISO/IEC 27001 Information Security Workshop</h3>
+              <h4>Hacker Mentor Cybersecurity Academy</h4>
+              <p>Specialized training in information security management systems (ISMS), risk assessment methodologies, access control, and incident response frameworks.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">MAY. 2024 — AUG. 2024</div>
+            <div class="timeline-content">
+              <h3>Sales Promoter & Customer Operations</h3>
+              <h4>ROM Outsourcing S.A.C. — Ilo, Peru</h4>
+              <p>Direct commercial advice, customer negotiation, problem resolution, and point-of-sale goal fulfillment.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">FEB. 2023 — MAR. 2024</div>
+            <div class="timeline-content">
+              <h3>Sales Advisor, Trainee & Cashier</h3>
+              <h4>Inversiones Rubin's S.A.C. (Footloose) — Ilo, Peru</h4>
+              <p>Transactional POS systems operations, customer retention, cash reconciliation, and cross-functional team coordination under fast-paced retail environments.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">APR. 2019 — OCT. 2019</div>
+            <div class="timeline-content">
+              <h3>Hardware & Mobile Device Instructor</h3>
+              <h4>Instituto Técnico Interamericano — Ilo, Peru</h4>
+              <p>Taught theoretical and hands-on laboratory classes on hardware diagnosis, micro-soldering, circuit troubleshooting, and mobile architecture for over 20 students.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="contact-card">
+          <span class="section-tag">// 05. GET IN TOUCH</span>
+          <h2 class="contact-title">Let's Build Something Great Together</h2>
+          <p class="contact-subtitle">
+            I am currently open to <strong>Pre-Professional Internships, Junior Software Developer roles, or collaborative open-source projects</strong>. 
+            Feel free to reach out directly!
+          </p>
+
+          <div class="contact-methods">
+            <div class="contact-box" id="copy-email-btn" role="button" tabindex="0" title="Click to copy email address">
+              <i class="fa-regular fa-envelope text-amber"></i>
+              <div class="contact-details">
+                <span class="contact-label">Email Address</span>
+                <span class="contact-val">jeffcortez2305@gmail.com</span>
+              </div>
+              <span class="copy-badge"><i class="fa-regular fa-copy"></i> Copy</span>
+            </div>
+
+            <a href="https://www.linkedin.com/in/jeff-cortez-6b4407338/" target="_blank" rel="noopener noreferrer" class="contact-box">
+              <i class="fa-brands fa-linkedin text-cyan"></i>
+              <div class="contact-details">
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-val">linkedin.com/in/jeff-cortez</span>
+              </div>
+              <span class="copy-badge"><i class="fa-solid fa-arrow-up-right-from-square"></i> Visit</span>
+            </a>
+
+            <a href="https://github.com/JeffCortez23" target="_blank" rel="noopener noreferrer" class="contact-box">
+              <i class="fa-brands fa-github text-emerald"></i>
+              <div class="contact-details">
+                <span class="contact-label">GitHub</span>
+                <span class="contact-val">github.com/JeffCortez23</span>
+              </div>
+              <span class="copy-badge"><i class="fa-solid fa-arrow-up-right-from-square"></i> Visit</span>
+            </a>
+          </div>
+
+          <div class="contact-location">
+            <i class="fa-solid fa-location-dot text-amber"></i>
+            <span>Based in <strong>Ilo, Moquegua, Peru</strong> • Available for Remote & Hybrid Opportunities</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p>© 2026 Renzo Jeffrey Cortez Laura (<strong>ElYefris</strong>). Built with Three.js & Modern Web Standards.</p>
+      <div class="footer-links">
+        <a href="#hero">Back to Top <i class="fa-solid fa-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <!-- Custom Scripts -->
+  <script src="three-scene.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
