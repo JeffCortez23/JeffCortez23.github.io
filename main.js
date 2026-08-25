@@ -54,20 +54,46 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // 2. LIVE CLOCK (ILO, PERU UTC-5)
+  // 2. LIVE CLOCK & SMART AVAILABILITY SCHEDULE (ILO, PERU UTC-5)
   // =========================================================================
   const liveTimeEl = document.getElementById('live-time-display');
+  const statusDotEl = document.getElementById('status-live-dot');
+
   function updateLiveClock() {
-    if (!liveTimeEl) return;
     const now = new Date();
-    const timeStr = now.toLocaleTimeString('en-US', {
-      timeZone: 'America/Lima',
-      hour12: false,
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit'
-    });
-    liveTimeEl.textContent = timeStr;
+    
+    // Time in America/Lima
+    if (liveTimeEl) {
+      const timeStr = now.toLocaleTimeString('en-US', {
+        timeZone: 'America/Lima',
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+      liveTimeEl.textContent = timeStr;
+    }
+
+    // Dynamic Availability based on local hour (7:00 AM to 11:00 PM)
+    if (statusDotEl) {
+      const hourFormatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Lima',
+        hour: 'numeric',
+        hour12: false
+      });
+      const currentHour = parseInt(hourFormatter.format(now), 10);
+      const isWorkingHours = currentHour >= 7 && currentHour < 23;
+
+      if (isWorkingHours) {
+        statusDotEl.className = 'status-live-dot online';
+        const label = currentLang === 'es' ? 'Online • Activo' : 'Online • Active';
+        statusDotEl.innerHTML = `<span class="pulse-dot"></span> <span>${label}</span>`;
+      } else {
+        statusDotEl.className = 'status-live-dot offline';
+        const label = currentLang === 'es' ? '🌙 Fuera de línea • Responde mañana' : '🌙 Away • Replies by morning';
+        statusDotEl.innerHTML = `<span>${label}</span>`;
+      }
+    }
   }
   setInterval(updateLiveClock, 1000);
   updateLiveClock();
@@ -345,6 +371,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (chipInternship) chipInternship.textContent = presets.internship.label;
       if (chipInterview) chipInterview.textContent = presets.interview.label;
       if (chipCollab) chipCollab.textContent = presets.collab.label;
+    }
+
+    // Refresh dynamic live status label in current language
+    if (typeof updateLiveClock === 'function') {
+      updateLiveClock();
     }
 
     const langEn = document.getElementById('lang-en');
