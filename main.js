@@ -372,6 +372,20 @@ document.addEventListener('DOMContentLoaded', () => {
       if (chipCollab) chipCollab.textContent = presets.collab.label;
     }
 
+    // Update Dynamic CV Download Links (ES / EN)
+    const cvFile = lang === 'es' ? 'CV_Renzo_Cortez_ES.pdf' : 'CV_Renzo_Cortez_EN.pdf';
+    const navCvBtn = document.getElementById('nav-cv-btn');
+    const heroCvBtn = document.getElementById('hero-cv-btn');
+
+    if (navCvBtn) {
+      navCvBtn.setAttribute('href', cvFile);
+      navCvBtn.setAttribute('download', cvFile);
+    }
+    if (heroCvBtn) {
+      heroCvBtn.setAttribute('href', cvFile);
+      heroCvBtn.setAttribute('download', cvFile);
+    }
+
     // Refresh dynamic live status label in current language
     if (typeof updateLiveClock === 'function') {
       updateLiveClock();
@@ -1108,10 +1122,11 @@ clean_wine_prefix() {
 
       case 'cv':
       case 'resume':
-        appendCLILine('output', `📄 Downloading <strong>CV_Renzo_Cortez.pdf</strong>...`);
+        const cvFileToDownload = currentLang === 'es' ? 'CV_Renzo_Cortez_ES.pdf' : 'CV_Renzo_Cortez_EN.pdf';
+        appendCLILine('output', `📄 Downloading <strong>${cvFileToDownload}</strong>...`);
         const a = document.createElement('a');
-        a.href = 'CV_Renzo_Cortez.pdf';
-        a.download = 'CV_Renzo_Cortez.pdf';
+        a.href = cvFileToDownload;
+        a.download = cvFileToDownload;
         a.click();
         break;
 
